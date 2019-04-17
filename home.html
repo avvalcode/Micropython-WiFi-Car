@@ -1,0 +1,48 @@
+<html>
+<head>
+<script type="text/javascript">
+var DEVICE_URL = 'http://'
+function Action(robo){
+    var requestURL = DEVICE_URL + "/?robo="+robo
+    $.get (requestURL)
+    }
+</script>
+<style>
+        .button {
+          background-color:white;
+          border: 2px solid #555555;
+          color:black;
+          padding: 20px 32px;
+          height: 100px;
+          width: 200px;
+          text-align: center;
+          text-decoration: currentColor;
+          display: inline-block;
+          font-size: 32px;
+          margin: 64px 32px;
+          cursor: pointer;
+          border-radius: 8px;
+          grid-gap: 20px;
+        }
+</style>
+</head>
+<center>
+<div id="container">
+        <div class="col-md-1 btn-group">
+            <button class="button" ontouchstart="Action('upleft')" ontouchend="Action('stop')">UpLeft</button>
+            <button class="button" ontouchstart="Action('forward')" ontouchend="Action('stop')">Forward</button>
+            <button class="button" ontouchstart="Action('upright')" ontouchend="Action('stop')">UpRight</button>
+        </div>
+        <div class="col-md-1 btn-group">
+            <button class="button" ontouchstart="Action('left')" ontouchend="Action('stop')">Left</button>
+            <button class="button" ontouchstart="Action('stop')" ontouchend="Action('stop')">Stop</button>
+            <button class="button" ontouchstart="Action('right')" ontouchend="Action('stop')">Right</button>
+        </div>
+        <div class="col-md-1 btn-group">
+            <button class="button" ontouchstart="Action('downleft')" ontouchend="Action('stop')">DownLeft</button>
+            <button class="button" ontouchstart="Action('backward')" ontouchend="Action('stop')">Backward</button>
+            <button class="button" ontouchstart="Action('downright')" ontouchend="Action('stop')">DownRight</button>
+        </div>
+</div>
+</center>
+</html>
