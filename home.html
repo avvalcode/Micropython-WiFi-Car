@@ -22,41 +22,60 @@ function Action(robo){
 }
 </script>
 <style>
-        .button {
-          background-color:white;
-          border: 2px solid #555555;
-          color:black;
-          padding: 20px 32px;
-          height: 100px;
-          width: 200px;
-          text-align: center;
-          text-decoration: currentColor;
-          display: inline-block;
-          font-size: 32px;
-          margin: 64px 32px;
-          cursor: pointer;
-          border-radius: 8px;
-          grid-gap: 20px;
-        }
+    .row {
+        display: flex;
+        flex: 1;
+    }
+    .row .col {
+        flex: 1;
+        width: 33vw;
+        height: 33vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .row .col button {
+        width: 90%;
+        height: 90%;
+        border-radius: 99em;
+        border: 2px solid #555555;
+        background: #fff;
+    }
 </style>
 </head>
-<center>
 <div id="container">
-        <div class="col-md-1 btn-group">
-            <button class="button" onclick="Action('upleft')" ontouchstart="Action('upleft')" ontouchend="Action('stop')">UpLeft</button>
-            <button class="button" ontouchstart="Action('forward')" ontouchend="Action('stop')">Forward</button>
-            <button class="button" ontouchstart="Action('upright')" ontouchend="Action('stop')">UpRight</button>
+    <div class="row">
+        <div class="col">
+            <button ontouchstart="Action('upleft')" ontouchend="Action('stop')">UpLeft</button>
         </div>
-        <div class="col-md-1 btn-group">
-            <button class="button" ontouchstart="Action('left')" ontouchend="Action('stop')">Left</button>
-            <button class="button" ontouchstart="Action('stop')" ontouchend="Action('stop')">Stop</button>
-            <button class="button" ontouchstart="Action('right')" ontouchend="Action('stop')">Right</button>
+        <div class="col">
+            <button ontouchstart="Action('forward')" ontouchend="Action('stop')">Forward</button>
         </div>
-        <div class="col-md-1 btn-group">
-            <button class="button" ontouchstart="Action('downleft')" ontouchend="Action('stop')">DownLeft</button>
-            <button class="button" ontouchstart="Action('backward')" ontouchend="Action('stop')">Backward</button>
-            <button class="button" ontouchstart="Action('downright')" ontouchend="Action('stop')">DownRight</button>
+        <div class="col">
+            <button ontouchstart="Action('upright')" ontouchend="Action('stop')">UpRight</button>
         </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button ontouchstart="Action('left')" ontouchend="Action('stop')">Left</button>
+        </div>
+        <div class="col">
+            <button ontouchstart="Action('stop')" ontouchend="Action('stop')">Stop</button>
+        </div>
+        <div class="col">
+            <button ontouchstart="Action('right')" ontouchend="Action('stop')">Right</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button ontouchstart="Action('downleft')" ontouchend="Action('stop')">DownLeft</button>
+        </div>
+        <div class="col">
+            <button ontouchstart="Action('backward')" ontouchend="Action('stop')">Backward</button>
+        </div>
+        <div class="col">
+            <button ontouchstart="Action('downright')" ontouchend="Action('stop')">DownRight</button>
+        </div>
+    </div>
 </div>
-</center>
 </html>
