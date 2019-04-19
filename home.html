@@ -1,11 +1,25 @@
 <html>
 <head>
 <script type="text/javascript">
-var DEVICE_URL = 'http://'
+function ajax(url) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", url);
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            if(xmlhttp.status == 200){
+                console.log('Response: ' + xmlhttp.responseText );
+            }else{
+                console.log('Error: ' + xmlhttp.statusText )
+            }
+        }
+    }
+    xmlhttp.send(null);
+}
+var DEVICE_URL = ''
 function Action(robo){
     var requestURL = DEVICE_URL + "/?robo="+robo
-    $.get (requestURL)
-    }
+    ajax(requestURL)
+}
 </script>
 <style>
         .button {
@@ -29,7 +43,7 @@ function Action(robo){
 <center>
 <div id="container">
         <div class="col-md-1 btn-group">
-            <button class="button" ontouchstart="Action('upleft')" ontouchend="Action('stop')">UpLeft</button>
+            <button class="button" onclick="Action('upleft')" ontouchstart="Action('upleft')" ontouchend="Action('stop')">UpLeft</button>
             <button class="button" ontouchstart="Action('forward')" ontouchend="Action('stop')">Forward</button>
             <button class="button" ontouchstart="Action('upright')" ontouchend="Action('stop')">UpRight</button>
         </div>
