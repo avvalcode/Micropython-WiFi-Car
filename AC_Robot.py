@@ -1,6 +1,5 @@
 import machine
 
-
 class Robo:
     def __init__(self,machine):
         self.machine = machine
@@ -19,6 +18,10 @@ class Robo:
         self.LeftMotor1.duty(duty)
         self.RightMotor1.duty(duty)
 
+    def Backward(self , duty = 0):
+        self.LeftMotor2.duty(duty)
+        self.RightMotor2.duty(duty)
+
     def Left(self):
         self.Stop()
         self.RightMotor1.duty(0)
@@ -29,8 +32,9 @@ class Robo:
 
     def Upleft(self):
         self.Stop()
-        self.LeftMotor2.duty(100)
         self.RightMotor1.duty(0)
+        self.LeftMotor2.duty(100)
+
 
     def Upright(self):
         self.Stop()
@@ -39,12 +43,11 @@ class Robo:
 
     def Downleft(self):
         self.Stop()
-        self.LeftMotor1.duty(0)
-        self.RightMotor2.duty(100)
-    
+        self.RightMotor2.duty(0)
+        self.LeftMotor1.duty(100)
+
+
     def Downright(self):
         self.Stop()
-        self.LeftMotor1.duty(100)
-        self.RightMotor2.duty(0)
-
-
+        self.LeftMotor2.duty(0)
+        self.RightMotor1.duty(100)

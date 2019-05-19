@@ -15,7 +15,8 @@ function ajax(url) {
     }
     xmlhttp.send(null);
 }
-var DEVICE_URL = ''
+
+var DEVICE_URL = 'http://0.0.0.0'
 function Action(robo){
     var requestURL = DEVICE_URL + "/?robo="+robo
     ajax(requestURL)
