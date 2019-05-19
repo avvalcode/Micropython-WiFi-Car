@@ -7,7 +7,7 @@ def Connection():
     sta_if.active(True)
     try:
         print("connecting ...")
-        sta_if.connect('swimax', 'look@m1ub')
+        sta_if.connect('Your_WIFI_ssid', 'Your_WIFI_pass')
         print("connected to ", sta_if.ifconfig()[0])
     except:
         sta_if.isconnected() == True
