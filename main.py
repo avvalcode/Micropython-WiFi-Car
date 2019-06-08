@@ -8,10 +8,18 @@ except:
 
 Robo = Robo(machine)
 
-html = b"""<!DOCTYPE html>
+html = b"""\
+HTTP/1.1 200 OK
+Content-Type: text/html\r\n
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <script type="text/javascript">
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) { event.preventDefault(); }
+}, false);
 function ajax(url) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url);
@@ -40,6 +48,13 @@ function Action(robo){
         justify-content: space-between;
         height: 100vh;
         margin: 0;
+    }
+    body * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
     }
     a {
         text-decoration: none;
@@ -226,12 +241,14 @@ def Main(Robo , micropython_optimize = False):
         elif get == '/?robo=downleft':
             Robo.Downleft()
             print("DownLeft")
+        else:
+            client_stream.write(html)
         while True:
             h = client_stream.readline()
             if h == b"" or h == b"\r\n":
                 break
             # print(h)
-        client_stream.write(html)
+        client_stream.write('')
         client_stream.close()
         if not micropython_optimize:
             cl.close()
